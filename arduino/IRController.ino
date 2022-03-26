@@ -12,14 +12,14 @@ void setup()
 {
 	Serial.begin(9600);
 	Serial.setTimeout(2000000);
-	IrSender.begin(IR_SEND_PIN, ENABLE_LED_FEEDBACK); // Start with IR_SEND_PIN as send pin and enable feedback LED at default feedback LED pin
-	IrSender.enableIROut(38);						  // Call it with 38 kHz to initialize the values printed below
+	IrSender.begin(IR_SEND_PIN, ENABLE_LED_FEEDBACK);
+	IrSender.enableIROut(38);
 }
 
 void loop()
 {
 	Request data = {0};
-	Serial.readBytes((char*)&data, sizeof(Request));
+	Serial.readBytes((char *)&data, sizeof(Request));
 	Serial.print("Sending address=");
 	Serial.print(data.address);
 	Serial.print(" command=");
